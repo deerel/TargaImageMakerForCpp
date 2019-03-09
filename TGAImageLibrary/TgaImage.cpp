@@ -62,9 +62,9 @@ namespace ti
     {
     }
 
-    void save(const std::string& path, const std::string& fileName)
+    void save(const std::string& path, const std::string& filename)
     {
-      const std::string fullPath = path + fileName;
+      const std::string fullPath = path + filename;
       ofstream image(fullPath.c_str(), ios::binary);
       if (image.is_open())
       {
@@ -112,7 +112,7 @@ namespace ti
   }; // impl
 
   TgaImage::TgaImage(uint16_t width, uint16_t height)
-    : m_pImpl(new impl(width, height))
+    : m_upImpl(new impl(width, height))
   {
   }
 
@@ -122,44 +122,44 @@ namespace ti
 
   TgaImage & TgaImage::operator=(TgaImage && op) noexcept = default;
 
-  void TgaImage::save(const std::string & fileName)
+  void TgaImage::save(const std::string & filename)
   {
-    m_pImpl->save("", fileName);
+    m_upImpl->save("", filename);
   }
 
-  void TgaImage::save(const std::string & path, const std::string & fileName)
+  void TgaImage::save(const std::string & path, const std::string & filename)
   {
-    m_pImpl->save(path, fileName);
+    m_upImpl->save(path, filename);
   }
 
   void TgaImage::fill(const Color & color) noexcept
   {
-    m_pImpl->fill(color.r, color.g, color.b);
+    m_upImpl->fill(color.r, color.g, color.b);
   }
 
   void TgaImage::fill(uint8_t value) noexcept
   {
-    m_pImpl->fill(value, value, value);
+    m_upImpl->fill(value, value, value);
   }
 
   void TgaImage::fill(uint8_t red, uint8_t green, uint8_t blue) noexcept
   {
-    m_pImpl->fill(red, green, blue);
+    m_upImpl->fill(red, green, blue);
   }
 
   void TgaImage::set(uint16_t x, uint16_t y, const Color & color)
   {
-    m_pImpl->set(x, y, color.r, color.g, color.b);
+    m_upImpl->set(x, y, color.r, color.g, color.b);
   }
 
   void TgaImage::set(uint16_t x, uint16_t y, uint8_t value)
   {
-    m_pImpl->set(x, y, value, value, value);
+    m_upImpl->set(x, y, value, value, value);
   }
 
   void TgaImage::set(uint16_t x, uint16_t y, uint8_t red, uint8_t green, uint8_t blue)
   {
-    m_pImpl->set(x, y, red, green, blue);
+    m_upImpl->set(x, y, red, green, blue);
   }
 
 
