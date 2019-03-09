@@ -95,7 +95,6 @@ namespace ti
         || y < 0 || y >= m_height)
       {
         // Outside image boundaries
-        std::cout << "Outside image boundaries" << std::endl;
         throw std::invalid_argument("Coordinate is outside the image.");
       }
 
