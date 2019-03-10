@@ -45,7 +45,7 @@ Create an image with a width of 128 pixels and a height of 256 pixels.
 auto image(ti::TgaImage(128, 256));
 ```
 
-Fill the entire image with gray. The values for red, green and blue will all be set to 128.
+Fill the entire image with grey. The values for red, green and blue will all be set to 128.
 ```cpp
 image.fill(128);
 ```
